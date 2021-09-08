@@ -16,3 +16,4 @@ class Employee extends Model
       'dob'
     ];
 }
+   

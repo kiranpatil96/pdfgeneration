@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ExcelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,11 @@ Route::get('/', function () {
 
 Route::get('generate-pdf', [PdfController::class, 'generatePDF']);
 
-//genearate pdf 
+//genearate pdf
 Route::get('/', [EmployeeController::class, 'showEmployees']);
 Route::get('/employee/pdf', [EmployeeController::class, 'createPDF']);
+
+//import to excel
+Route::get('importExportView', [ExcelController::class, 'importExportView']);
+Route::get('export', [ExcelController::class, 'export'])->name('export');
+Route::post('import', [ExcelController::class, 'import'])->name('import');
